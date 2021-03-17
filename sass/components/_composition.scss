@@ -1,0 +1,51 @@
+.composition {
+	position: relative;
+	
+	&__photo {
+		box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+		border-radius: 2px;
+		width: 55%;
+		position: absolute;
+		z-index: 1;
+		transition: all .2s;
+
+		// give us space between outline and item
+		outline-offset: 2rem;
+
+		&--p1 {
+			left: 0;
+			top: -2rem;
+		}
+
+		&--p2 {
+			right: 0;
+			top: 2rem;
+		}
+
+		&--p3 {
+			left: 20%;
+			top: 10rem;
+		}
+
+		&:hover {
+
+			// Setting border around image
+			//simmilar to setting it to border. with outline we can add outline offset
+			outline: 1.5rem solid $color-primary; 
+
+
+			box-shadow: 0 2.5rem 4rem rgba($color-black, .4);
+			transform: scale(1.05) translateY(-.5rem);
+			z-index: 2;
+
+
+		}
+	}
+
+	// to make other images smaller while we hover image:
+	// we need to hover on all componen  then we need to select photo thats inside and
+	//select one that is not hovered
+	&:hover &__photo:not(:hover) {
+		transform: scale(.95);
+	}
+}
