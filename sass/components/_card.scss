@@ -1,0 +1,51 @@
+.card {
+
+	// in css we can define perspective. We define perspective on parent element of the one where rotation occurs
+	// the lower the value, the drastic perspective. Put the higher number
+	perspective: 150rem;
+	-moz-perspective: 150rem;
+	position: relative;
+	height: 50rem;
+
+	// we need to add child
+	&__side {
+		color: white;
+		font-size: 2rem;
+		height: 50rem;
+		transition: all .8s ease;
+
+		// we need to add both sides one on another with absolute positioning
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		// Important property. Hide backpart of an element
+		backface-visibility: hidden;
+		border-radius: 3px;
+		box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+		&--front {
+			background-color: $color-white;
+		}
+
+		&--back {
+			// on the back is already 180deg. as son as we haver that is moved to zero
+			transform: rotateY(180deg);
+
+			&-1 {
+				background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+			}
+		}
+	}
+
+	// rotate 180deg only front side
+	&:hover &__side--front {
+		transform: rotateY(180deg);
+	}
+
+	// back to 0
+	&:hover &__side--back {
+		transform: rotateY(0);
+	}
+
+}
