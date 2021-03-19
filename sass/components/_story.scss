@@ -1,0 +1,36 @@
+.story {
+	background-color: $color-white;
+	border-radius: 3px;
+	box-shadow: 0 3rem 6rem rgba($color-black, .1);
+	margin: 0 auto;
+	padding: 6rem;
+	padding-left: 9rem;
+	width: 75%;
+	font-size: $default-font-size;
+
+	transform: skewX(-12deg);
+
+	&__shape {
+		float: left;
+		height: 15rem;
+		width: 15rem;
+		// This only work if we define dimensions for element and element must be floated!
+		// we define size of circle and position of center. Radius of circle, center horizontaly and verticaly
+		-webkit-shape-outside: circle(50% at 50% 50%);
+		shape-outside: circle(50% at 50% 50%);
+
+		// Create circle with clip path
+		-webkit-clip-path: circle(50% at 50% 50%);
+		clip-path: circle(50% at 50% 50%);
+
+		transform: translateX(-3rem) skewX(12deg);
+	}
+
+	&__img {
+		height: 100%; 
+	}
+
+	&__text {
+		transform: skewX(12deg);
+	}
+}
